@@ -1,0 +1,14 @@
+name: "Extract PR Body Blocks"
+description: "Extract Type and Purpose blocks from PR Body"
+inputs:
+  pr_body:
+    description: "Pull request body markdown text"
+    required: true
+outputs:
+  type_block:
+    description: "Extracted markdown content under Type of changes"
+  purpose_block:
+    description: "Extracted markdown content under Purpose"
+runs:
+  using: "node20"
+  main: "dist/index.js"

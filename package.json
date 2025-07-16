@@ -1,0 +1,17 @@
+{
+    "name": "extract-pr-body-action",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+      "build": "ncc build src/extract.js -o dist"
+    },
+    "dependencies": {
+      "@actions/core": "^1.10.0",
+      "remark-parse": "^11.0.0",
+      "unified": "^11.0.0"
+    },
+    "devDependencies": {
+      "@vercel/ncc": "^0.36.1"
+    }
+  }
+  
