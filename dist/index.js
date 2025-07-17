@@ -42664,11 +42664,23 @@ function extractPRBodyBlocks(body) {
   return { typeBlock: typeBlock.trim(), purposeBlock: purposeBlock.trim() };
 }
 
-const prBody = process.env.PR_BODY ?? "";
-const { typeBlock, purposeBlock } = extractPRBodyBlocks(prBody);
-core.setOutput("type_block", typeBlock);
-core.setOutput("purpose_block", purposeBlock);
+try {
+  const prBody = process.env.PR_BODY ?? "";
+  
+  // --- 加入這行來偵錯 ---
+  core.info(`Received PR Body to parse: \n---\n${prBody}\n---`); 
+  
+  const { typeBlock, purposeBlock } = extractPRBodyBlocks(prBody);
 
+  core.info(`Parsed type_block: ${typeBlock}`); 
+  core.info(`Parsed purpose_block: ${purposeBlock}`); 
+
+  core.setOutput("type_block", typeBlock);
+  core.setOutput("purpose_block", purposeBlock);
+
+} catch (error) {
+  core.setFailed(error.message);
+}
 })();
 
 module.exports = __webpack_exports__;
