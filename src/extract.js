@@ -1,6 +1,6 @@
 import { unified } from "unified";
 import remarkParse from "remark-parse";
-import core from "@actions/core";
+import * as core from "@actions/core";
 
 export function extractPRBodyBlocks(body) {
   const tree = unified().use(remarkParse).parse(body);
