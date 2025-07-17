@@ -42665,7 +42665,7 @@ function extractPRBodyBlocks(body) {
 }
 
 try {
-  const prBody = process.env.PR_BODY ?? "";
+  const prBody = core.getInput("pr_body");
   
   // --- 加入這行來偵錯 ---
   core.info(`Received PR Body to parse: \n---\n${prBody}\n---`); 
