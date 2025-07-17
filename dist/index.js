@@ -27674,18 +27674,6 @@ module.exports = parseParams
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__nccwpck_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__nccwpck_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -42648,7 +42636,6 @@ function remarkParse(options) {
 
 // EXTERNAL MODULE: ./node_modules/@actions/core/lib/core.js
 var core = __nccwpck_require__(2186);
-var core_default = /*#__PURE__*/__nccwpck_require__.n(core);
 ;// CONCATENATED MODULE: ./src/extract.js
 
 
@@ -42679,8 +42666,8 @@ function extractPRBodyBlocks(body) {
 
 const prBody = process.env.PR_BODY ?? "";
 const { typeBlock, purposeBlock } = extractPRBodyBlocks(prBody);
-core_default().setOutput("type_block", typeBlock);
-core_default().setOutput("purpose_block", purposeBlock);
+core.setOutput("type_block", typeBlock);
+core.setOutput("purpose_block", purposeBlock);
 
 })();
 
